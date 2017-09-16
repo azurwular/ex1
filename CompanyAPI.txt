@@ -1,0 +1,82 @@
+REST Company
+api/person
+
+PATH complete
+GET method
+returns all companies in the database in json format
+if the database is empty it throws a 204 error message
+
+PATH complete/phone/{number}
+GET method
+returns the company with the given phone in json format
+throws a 404 error if the company doesnt exist
+throws a 400 in case of a wrong input (ex. non integer type)
+
+
+PATH complete/cvr/{cvr}
+GET method
+returns the company with the given cvr in json format
+throws a 404 error if the company doesnt exist
+throws a 400 in case of a wrong input (ex. non integer type)
+
+
+PATH contactinfo
+GET method
+returns the contact info of all companies in json format
+if the database is empty it throws a 204 error message
+
+PATH id/{id}
+GET method
+returns the company with the given id in json format
+throws a 404 error if the company doesnt exist
+throws a 400 in case of a wrong input (ex. non integer type)
+
+PATH cvr/{cvr}
+GET method
+returns the company with the given cvr in json format
+throws a 404 error if the company doesnt exist
+throws a 400 in case of a wrong input (ex. non integer type)
+
+
+PATH city/{zipcode}
+GET method
+returns the companies in the city with the given zipcode in json format
+throws a 404 error if the company doesnt exist
+throws a 400 in case of a wrong input (ex. non integer type)
+
+
+PATH count/{zipcode}
+GET method
+returns the number of companies in the city with the given zipcode
+throws a 404 error if the company doesnt exist
+throws a 400 in case of a wrong input (ex. non integer type)
+
+
+PATH street
+GET method
+returns all the streets in json format
+throws a 204 error if there are no streets
+
+PAT zip
+GET method
+returns all the zipcodes
+throws a 204 error if there are no zip codes
+
+PATH employess/more/{min}
+GET method
+returns the companies that have less employess than the given number in json format
+throws a 404 error if the company doesnt exist
+
+PUT method
+edit a company
+throws a 404 error if you try to edit a non existing company
+
+POST method
+create a company
+throws a 400 error if you dont fill all the fields
+
+PATH {id}
+DELETE method
+delete the company with the given id
+throws a 404 error if the company doesnt exist
+throws a 400 in case of a wrong input (ex. non integer type)

@@ -1,0 +1,93 @@
+REST Person
+api/person
+
+PATH complete
+GET method
+returns all persons in the database in json format
+if the database is empty it throws a 204 error message
+
+PATH complete/{id}
+GET method
+returns the person with the given id in json format
+throws a 404 error if the person doesnt exist
+throws a 400 in case of a wrong input (ex. non integer type)
+
+PATH contactinfo
+GET method
+returns the contact info of all persons in json format
+if the database is empty it throws a 204 error message
+
+PATH contactinfo/{id}
+GET method
+returns the person with the given id in json format
+throws a 404 error if the person doesnt exist
+throws a 400 in case of a wrong input (ex. non integer type)
+
+PATH phone/{phone}
+GET method
+returns the person with the given phone in json format
+throws a 404 error if the person doesnt exist
+throws a 400 in case of a wrong input (ex. non integer type)
+
+PATH city/{city}
+GET method
+returns the persons that live in the given city in json format
+throws a 404 error if there is no person in that city
+
+
+PATH zip/{zipcode}
+GET method
+returns the persons that live in the given city in json format
+throws a 404 error if there is no person in that city
+
+PATH hobby/{hobby}
+GET method
+returns the persons that have the given hobby in json format
+throws a 404 error if no person has that hobby
+
+PATH hobby/count/{hobby}
+GET method
+returns the number of persons with the given hobby
+
+PATH zip/count/{zipcode}
+GET method
+returns the number of persons that live in the city with the given zipcode
+
+PATH street
+GET method
+returns all the streets in json format
+
+PATH zip
+GET method
+returns all the zipcodes in json format
+
+POST method
+adds a new person
+
+PUT method
+edits a person
+
+
+We used the Single table strategy beause is simplier. 
+The single table strategy maps all entities of the inheritance structure to the same database table.
+This approach makes polymorphic queries very efficient and provides best performance,
+but it also has some drawbacks.The attributes of all entities are mapped to the same database
+table.Each record uses only a subset of the available columns and sets the rest of them to null.
+SO you can not use not null constraints on any column that isnt mapped to all entities.
+That can create data integrity issues.
+
+
+The test are in the folder "Test Packages".The "IntegrationTest" package contains the integration tests
+and the "UnitTest" package the unit tests for Company facade and the Person facade.
+
+We all contributed in making the entities and designing the database
+Mattias and Lovro did the front end
+Dimitri did the Facade , resource and error handling for the Person entities
+Lovro did the Facade , resource for the company entities
+Tomas did the error handling for the company entity
+Mattias did the Testing classes
+
+First we did manual testing with the end points
+"UnitTest" package the unit tests for Company facade and the Person facade. 
+"IntegrationTest" package is used for testing the database facades. 
+We manually test the endpoints of our REST API.
